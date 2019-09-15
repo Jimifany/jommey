@@ -1,3 +1,7 @@
 :global .red {
     color: red;
 }
+
+:global .b {
+    color: red;
+}
