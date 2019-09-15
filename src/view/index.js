@@ -17,6 +17,7 @@ import AddUser from '..iews/main/UserManage/addUser'
 import ExamManage from '@iews/main/examManager/examManage/examManage'
 //考试列表
 import QuestionList from '@iews/main/examManager/questionList'
+//考试详情
 import ExamQuestionDetail from '@iews/main/examManager/examquestiondetail'
 import AddExamList from '@iews/main/examManager/addExamList'
 
