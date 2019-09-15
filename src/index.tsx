@@ -2,13 +2,16 @@ import 'antd/dist/antd.css';
 import {Provider} from 'mobx-react'
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import './index.css';
+// import './css/theme.css';
+//引入主题
+// import "css/theme.css"
 //引入配置路由
 import RouterView from './router/RouterView'
 import routes from './router/index'
 import store from './store/index'
 import {Router} from 'react-router'
 import {createBrowserHistory} from 'history'
+
 //创建一个browser router
 const history =createBrowserHistory()
 console.log(history)
