@@ -5,7 +5,8 @@ import * as ReactDOM from 'react-dom';
 import './index.css';
 // 引入antd样式
 import 'antd/dist/antd.css';
-
+//引入全局样式 (皮肤)
+import "./css/theme.css"
 // 引入mobx实例
 import {Provider, observer, inject} from 'mobx-react';
 import store from './store'
