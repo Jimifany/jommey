@@ -1,0 +1,44 @@
+.classCon h2 {
+    width: 200px;
+    height: 50px;
+    background: skyblue;
+    color: #ffff;
+    text-align: center;
+    line-height: 21px;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+
+/* .classCon {
+    position: relative;
+    left: -7%;
+} */
+
+.title {
+    width: 80%;
+    height: 52px;
+    background: #eee;
+    display: flex;
+}
+
+.title span {
+    width: 24%;
+    text-align: center;
+    line-height: 52px;
+}
+
+.classTest {
+    width: 80%;
+    height: 52px;
+    /* background: salmon; */
+    display: flex;
+    background: #fafafa;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.classTest span {
+    width: 24%;
+    text-align: center;
+    line-height: 52px;
+}

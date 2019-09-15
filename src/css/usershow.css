@@ -1,0 +1,19 @@
+.ant-table-row {
+    height: 53.6px;
+    /* background: firebrick; */
+    background: #f0f2f5;
+}
+
+.ant-table-thead {
+    background: #fafafa;
+}
+
+.ant-table-thead th {
+    height: 53.6px;
+    background: #fafafa;
+}
+
+.userTitle {
+    margin: 40px 5px;
+    height: 40px;
+}
