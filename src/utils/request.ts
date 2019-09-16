@@ -4,7 +4,7 @@ import { getToken } from './index'
 const Url = {
   '123.206.55.50': '//exam.jasonandjay.com',
   'jasonandjay.com': '//exam.jasonandjay.com',
-  '127.0.0.1': '//172.29.102.1:7001'
+  '127.0.0.1:3000': '//172.29.102.1:7001'
 }
 const instance = axios.create({
   baseURL: Url[window.location.host],
