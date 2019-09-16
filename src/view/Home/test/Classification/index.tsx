@@ -1,4 +1,5 @@
 import * as React from "react";
+import * as XLSX from "xlsx";
 import {
   Button,
   Breadcrumb,
@@ -15,7 +16,7 @@ interface Props {
   action: any;
   insert: any;
 }
-@inject("action",'insert')
+@inject("action", "insert")
 @observer
 class Router extends React.Component<Props> {
   state = {
@@ -67,8 +68,35 @@ class Router extends React.Component<Props> {
     const result = await getCation();
     this.setState({
       list: result.data,
-      sort: result.data.length + 1+''
+      sort: result.data.length + 1 + ""
     });
+  };
+  //导入
+  Import = () => {
+    // 1.把table里面的数据生成worksheet
+    let wroksheet = XLSX.utils.json_to_sheet(this.state.list);
+    // 2.把worksheet放到workbook里
+    let workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, wroksheet);
+    XLSX.utils.book_append_sheet(workbook, wroksheet);
+    XLSX.utils.book_append_sheet(workbook, wroksheet);
+    XLSX.utils.book_append_sheet(workbook, wroksheet);
+    XLSX.utils.book_append_sheet(workbook, wroksheet);
+    //把数据写入文件里面
+    XLSX.writeFile(workbook, '学生名单.xlsx');
+  };
+  //导出
+  export = (e:any) => {
+    let render = new FileReader()
+    render.onload=function(e:any){
+      var data = new Uint8Array(e.target.result);
+      var workbook = XLSX.read(data, {type: 'array'});
+      console.log('workbook...', workbook);
+
+      var ws = XLSX.utils.sheet_to_json(workbook.Sheets[workbook.SheetNames[0]]);
+      console.log('data...', ws);
+    }
+    render.readAsArrayBuffer(e.target.files[0]);
   };
   // const {getInset} = this.props.insert
   // const results = await getInset()
@@ -87,7 +115,7 @@ class Router extends React.Component<Props> {
         dataIndex: "caozuo"
       }
     ];
-    let { typeData } = this.state
+    let { typeData } = this.state;
     const data = this.state.list.map((item: any, index) => {
       return {
         key: index,
@@ -113,6 +141,24 @@ class Router extends React.Component<Props> {
           >
             <Icon type="plus" />
             添加类型
+          </Button>
+          <Button
+            type="primary"
+            onClick={() => {
+              this.Import;
+            }}
+            style={{ margin: "0 10px" }}
+          >
+            <Icon type="plus" />
+             <input type="file" accept=".xlsx" onChange={this.export} />
+          </Button>
+          <Button
+            type="primary"
+            onClick={this.Import}
+            style={{ margin: "0 10px" }}
+          >
+            <Icon type="plus" />
+            导入
           </Button>
           <div className="ant-table-wrapper style_table__12_WF">
             <Table columns={columns} dataSource={data} />
