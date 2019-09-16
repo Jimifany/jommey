@@ -22,27 +22,10 @@ let Testy=Loadable({loading:Loading,loader:()=>import("src/view/Home/test")})
 let Markingy=Loadable({loading:Loading,loader:()=>import("src/view/Home/marking")})
 let Usery=Loadable({loading:Loading,loader:()=>import("src/view/Home/user")})
 let Examy=Loadable({loading:Loading,loader:()=>import("src/view/Home/exam")})
-// import Grade from "../view/Home/class/Grade/index";
-// import Student from "../view/Home/class/Student/index";
-// import Teacher from "../view/Home/class/Teacher/index";
-// import Addexam from "../view/Home/exam/Addexam";
-// import Exam from "../view/Home/exam/Examlist/index";
-// import Marking from "../view/Home/marking/Marking/index";
-// import Adduser from "../view/Home/user/Adduser";
-// import User from "../view/Home/user/Userdisplay/index";
-// import Add from "../view/Home/test/Addquestions/index";
-// import Classification from "../view/Home/test/Classification/index";
-// import Test from "../view/Home/test/Checkquestions/index";
-// import Teadetail from "../view/Home/test/Checkquestions/teadetail";
-// import ExamManage from "src/view/Home/class";
-// import Testy from "src/view/Home/test";
-// import Markingy from "src/view/Home/marking";
-// import Usery from "src/view/Home/user";
-// import Examy from "src/view/Home/exam";
 //引入没有权限的文件
 import Hundredthre from 'src/view/Four/hundredthree'
 import Hundredfour from 'src/view/Four/hundredfour'
-import { Divider } from 'antd';
+// import { Divider } from 'antd';
 let routes = [
   {
     path: "/login",
