@@ -22,7 +22,7 @@ const publicPath = '/';
 // For these, "homepage" can be set to "." to enable relative asset paths.
 const shouldUseRelativeAssetPaths = publicPath === './';
 // Source maps are resource heavy and can cause out of memory issue for large source files.
-const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
+const shouldUseSourceMap = false;
 // `publicUrl` is just like `publicPath`, but we will provide it to our app
 // as %PUBLIC_URL% in `index.html` and `process.env.PUBLIC_URL` in JavaScript.
 // Omit trailing slash as %PUBLIC_URL%/xyz looks better than %PUBLIC_URL%xyz.
@@ -250,6 +250,17 @@ module.exports = {
         // In production, it will be an empty string unless you specify "homepage"
         // in `package.json`, in which case it will be the pathname of that URL.
         new InterpolateHtmlPlugin(env.raw),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendor',
+            minChunks: function(module) {
+                // This prevents stylesheet resources with the .css or .scss extension
+                // from being moved from their original chunk to the vendor chunk
+                if (module.resource && (/^.*\.(css|scss)$/).test(module.resource)) {
+                    return false;
+                }
+                return module.context && module.context.includes('node_modules');
+            }
+        }),
         // Generates an `index.html` file with the <script> injected.
         new HtmlWebpackPlugin({
             inject: true,
