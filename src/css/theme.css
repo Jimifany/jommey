@@ -1,7 +1,44 @@
-:global .red {
-    color: red;
+:global .summer .ant-layout-header {
+    background: wheat;
 }
 
-:global .b {
-    color: red;
+:global .summer .ant-layout-header .ant-menu-horizontal {
+    background: wheat;
 }
+
+:global .summer .ant-menu-submenu-title {
+    background: wheat;
+}
+
+:global .summer .ant-menu-item {
+    background: wheat;
+}
+
+:global .BasicLayout_logout__D7 {
+    background: wheat;
+}
+
+:global .autumn .ant-layout-header {
+    background: skyblue;
+}
+
+:global .autumn .ant-layout-header .ant-menu-horizontal {
+    background: skyblue;
+}
+
+:global .autumn .ant-menu-submenu-title {
+    background: skyblue;
+}
+
+:global .autumn .ant-menu-item {
+    background: skyblue;
+}
+
+:global .BasicLayout_logout__D7 {
+    background: skyblue;
+}
+
+
+/* :global .b {
+    color: red;
+} */

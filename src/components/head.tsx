@@ -1,6 +1,6 @@
 import * as React from "react";
 const { Header } = Layout;
-import { Layout, Menu, Dropdown, Modal, Form, Input ,Upload,Icon, message} from "antd";
+import { Layout, Menu, Dropdown, Modal, Form, Input, Upload, Icon, message } from "antd";
 import { observer, inject } from "mobx-react";
 interface Props {
   global?: any;
@@ -11,33 +11,33 @@ interface Props {
 @inject("global", "user")
 @observer
 class Head extends React.Component<Props> {
-  state = { visible: false, modal1Visible: false, modal2Visible: false ,loading: false};
-  setModal2Visible=(modal2Visible: any)=>{
+  state = { visible: false, modal1Visible: false, modal2Visible: false, loading: false };
+  setModal2Visible = (modal2Visible: any) => {
     this.setState({
       modal2Visible: modal2Visible.show
     });
     if (modal2Visible.key === "确认") {
-      this.props.form.validateFields(async (err: any, val: any)=>{
+      this.props.form.validateFields(async (err: any, val: any) => {
         val.avatar = this.props.user.avatar;
-        const {code, msg} = await this.props.user.updateUserInfo(val);
-        if (code === 1){
+        const { code, msg } = await this.props.user.updateUserInfo(val);
+        if (code === 1) {
           message.success('更新用户信息成功');
           this.setState({
             visible: false
           })
-        }else{
+        } else {
           message.error(msg)
         }
       })
     }
   }
-  beforeUpload():boolean{
+  beforeUpload(): boolean {
     return true
   }
-  handleChange=(info: any)=>{
+  handleChange = (info: any) => {
     console.log('info....', info);
     if (info.file.status === 'uploading') {
-         message.error('没有成功')
+      message.error('没有成功')
     }
     if (info.file.status === 'done') {
       this.props.user.changeAvatar(info.file.response.data[0].path);
@@ -45,7 +45,7 @@ class Head extends React.Component<Props> {
   }
   public render() {
     const { getFieldDecorator } = this.props.form;
-    const { userInfo,avatar } = this.props.user;
+    const { userInfo, avatar } = this.props.user;
     const formItemLayout = {
       labelCol: { span: 4, offset: 4 },
       wrapperCol: { span: 12 },
@@ -93,6 +93,7 @@ class Head extends React.Component<Props> {
         <div className="ant-upload-text">Upload</div>
       </div>
     );
+    const theme = ['','autumn', 'summer']
     return (
       <div>
         <Header className="header">
@@ -114,6 +115,14 @@ class Head extends React.Component<Props> {
                 切换切换国际化
               </span>
             </Menu.Item>
+            <Menu.Item key="3">
+            <span onClick={()=>{
+let ele:any=document.querySelector("#root");
+ele.className=theme[(theme.findIndex(item=>item===ele.className)+1)%3]
+            }}>
+                切换皮肤
+              </span>
+            </Menu.Item>
             <Dropdown
               overlay={menu}
               placement="bottomLeft"
@@ -125,7 +134,7 @@ class Head extends React.Component<Props> {
                     className="ant-avatar-string"
                     style={{ transform: "scale(1) translateX(-50%)" }}
                   >
-                    <img src={avatar} alt="" style={{width:"32px",height:"32px"}}/>
+                    <img src={avatar} alt="" style={{ width: "32px", height: "32px" }} />
                   </span>
                 </span>
                 {userInfo.user_name}
