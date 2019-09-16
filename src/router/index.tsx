@@ -1,25 +1,48 @@
-import Login from "../view/Login/login";
-import Index from "../view/Home/index";
-import Grade from "../view/Home/class/Grade/index";
-import Student from "../view/Home/class/Student/index";
-import Teacher from "../view/Home/class/Teacher/index";
-import Addexam from "../view/Home/exam/Addexam";
-import Exam from "../view/Home/exam/Examlist/index";
-import Marking from "../view/Home/marking/Marking/index";
-import Adduser from "../view/Home/user/Adduser";
-import User from "../view/Home/user/Userdisplay/index";
-import Add from "../view/Home/test/Addquestions/index";
-import Classification from "../view/Home/test/Classification/index";
-import Test from "../view/Home/test/Checkquestions/index";
-import Teadetail from "../view/Home/test/Checkquestions/teadetail";
-import ExamManage from "src/view/Home/class";
-import Testy from "src/view/Home/test";
-import Markingy from "src/view/Home/marking";
-import Usery from "src/view/Home/user";
-import Examy from "src/view/Home/exam";
+import * as Loadable from "react-loadable"
+import * as React from "react"
+function Loading(){
+  return <div>Loading...</div>
+}
+let Login=Loadable({loading:Loading,loader:()=>import("../view/Login/login")})
+let Index=Loadable({loading:Loading,loader:()=>import("../view/Home/index")})
+let Grade=Loadable({loading:Loading,loader:()=>import("../view/Home/class/Grade/index")})
+let Student=Loadable({loading:Loading,loader:()=>import("../view/Home/class/Student/index")})
+let Teacher=Loadable({loading:Loading,loader:()=>import("../view/Home/class/Teacher/index")})
+let Addexam=Loadable({loading:Loading,loader:()=>import("../view/Home/exam/Addexam")})
+let Exam=Loadable({loading:Loading,loader:()=>import("../view/Home/exam/Examlist/index")})
+let Marking=Loadable({loading:Loading,loader:()=>import("../view/Home/marking/Marking/index")})
+let Adduser=Loadable({loading:Loading,loader:()=>import("../view/Home/user/Adduser")})
+let User=Loadable({loading:Loading,loader:()=>import("../view/Home/user/Userdisplay/index")})
+let Add=Loadable({loading:Loading,loader:()=>import("../view/Home/test/Addquestions/index")})
+let Classification=Loadable({loading:Loading,loader:()=>import("../view/Home/test/Classification/index")})
+let Test=Loadable({loading:Loading,loader:()=>import("../view/Home/test/Checkquestions/index")})
+let Teadetail=Loadable({loading:Loading,loader:()=>import("../view/Home/test/Checkquestions/teadetail")})
+let ExamManage=Loadable({loading:Loading,loader:()=>import("src/view/Home/class")})
+let Testy=Loadable({loading:Loading,loader:()=>import("src/view/Home/test")})
+let Markingy=Loadable({loading:Loading,loader:()=>import("src/view/Home/marking")})
+let Usery=Loadable({loading:Loading,loader:()=>import("src/view/Home/user")})
+let Examy=Loadable({loading:Loading,loader:()=>import("src/view/Home/exam")})
+// import Grade from "../view/Home/class/Grade/index";
+// import Student from "../view/Home/class/Student/index";
+// import Teacher from "../view/Home/class/Teacher/index";
+// import Addexam from "../view/Home/exam/Addexam";
+// import Exam from "../view/Home/exam/Examlist/index";
+// import Marking from "../view/Home/marking/Marking/index";
+// import Adduser from "../view/Home/user/Adduser";
+// import User from "../view/Home/user/Userdisplay/index";
+// import Add from "../view/Home/test/Addquestions/index";
+// import Classification from "../view/Home/test/Classification/index";
+// import Test from "../view/Home/test/Checkquestions/index";
+// import Teadetail from "../view/Home/test/Checkquestions/teadetail";
+// import ExamManage from "src/view/Home/class";
+// import Testy from "src/view/Home/test";
+// import Markingy from "src/view/Home/marking";
+// import Usery from "src/view/Home/user";
+// import Examy from "src/view/Home/exam";
 //引入没有权限的文件
 import Hundredthre from 'src/view/Four/hundredthree'
 import Hundredfour from 'src/view/Four/hundredfour'
+import { Divider } from 'antd';
 let routes = [
   {
     path: "/login",
