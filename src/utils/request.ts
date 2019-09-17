@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { message } from 'antd';
 import { getToken } from './index'
+//UrL
 const Url = {
   '123.206.55.50': '//exam.jasonandjay.com',
   'jasonandjay.com': '//exam.jasonandjay.com',
