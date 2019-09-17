@@ -23,8 +23,8 @@ let Markingy=Loadable({loading:Loading,loader:()=>import("src/view/Home/marking"
 let Usery=Loadable({loading:Loading,loader:()=>import("src/view/Home/user")})
 let Examy=Loadable({loading:Loading,loader:()=>import("src/view/Home/exam")})
 //引入没有权限的文件
-import Hundredthre from 'src/view/Four/hundredthree'
-import Hundredfour from 'src/view/Four/hundredfour'
+// import Hundredthre from 'src/view/Four/hundredthree'
+// import Hundredfour from 'src/view/Four/hundredfour'
 // import { Divider } from 'antd';
 let routes = [
   {
@@ -141,21 +141,21 @@ let routes = [
       }
     ]
   },
-  {
-    path: "/403",
-    component:Hundredthre
-  },
-  {
-    path: "/404",
-    component: Hundredfour
-  },
+  // {
+  //   path: "/403",
+  //   component:Hundredthre
+  // },
+  // {
+  //   path: "/404",
+  //   component: Hundredfour
+  // },
   {
     from: "/",
     to: "/login"
   },
-  {
-    from: "*",
-    to: "/404"
-  }
+  // {
+  //   from: "*",
+  //   to: "/404"
+  // }
 ];
 export default routes;
